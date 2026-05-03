@@ -1,33 +1,24 @@
-from flask import Flask, send_from_directory
-from flask_cors import CORS
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from routes import chatbot_route
 import os
 
-app = Flask(__name__, static_folder="../frontend/build", static_url_path="/")
+# Initialize FastAPI App
+app = FastAPI(title="SMG-EV Chatbot API")
 
-from flask_cors import CORS
+# Setup CORS to allow your React frontend to communicate with this backend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Security tip: In production, change "*" to your React website URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-CORS(app)
+# Register the routes
+app.include_router(chatbot_route)
 
-# Register Blueprint for chatbot API
-app.register_blueprint(chatbot_route)
-
-@app.route("/")
-def serve_react():
-    return send_from_directory(app.static_folder, "index.html")
-
-@app.errorhandler(404)
-def not_found(e):
-    return send_from_directory(app.static_folder, "index.html")
-
-# if __name__ == "__main__":
-#     app.run(debug=True)
-
-# if __name__ == "__main__":
-#     app.run(debug=False, host="0.0.0.0", port=5000)
-
-if __name__ == "__main__":
-    if os.environ.get("FLASK_ENV") == "production":
-        app.run(debug=False, host="0.0.0.0", port=5000)
-    else:
-        app.run(debug=True, host="0.0.0.0", port=5000)
+# Simple health check to see if backend is running
+@app.get("/")
+def home():
+    return {"message": "FastAPI Backend is running successfully! Send POST requests to /ask"}
