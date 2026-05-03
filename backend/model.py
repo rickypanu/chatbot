@@ -3,6 +3,10 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import google.generativeai as genai
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 API_KEY = os.getenv("GOOGLE_API_KEY")
 
