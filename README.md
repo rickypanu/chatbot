@@ -170,10 +170,10 @@ models/gemini-1.5-flash-latest
 
 ##  Author
 
-**Priyanshu Kaushik**
+**Ricky Panu**
 
-* B.E. CSE, UIET Chandigarh
-* GitHub: https://github.com/priyanshuKshk
+* B.E. ECE, UIET Chandigarh
+* GitHub: https://github.com/rickypanu
 
 ---
 
