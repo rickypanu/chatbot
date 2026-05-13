@@ -24,7 +24,7 @@ def home():
     return {"message": "FastAPI Backend is running successfully! Send POST requests to /ask"}
 
 # --- NEW: Health Check Route for UptimeRobot ---
-@app.get("/health", status_code=200, tags=["Health"])
+@app.api_route("/health", methods=["GET", "HEAD"], status_code=200, tags=["Health"])
 def health_check():
     """
     Endpoint for UptimeRobot to ping and keep the server awake.
