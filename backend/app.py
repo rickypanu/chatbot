@@ -18,7 +18,15 @@ app.add_middleware(
 # Register the routes
 app.include_router(chatbot_route)
 
-# Simple health check to see if backend is running
+# Simple home route
 @app.get("/")
 def home():
     return {"message": "FastAPI Backend is running successfully! Send POST requests to /ask"}
+
+# --- NEW: Health Check Route for UptimeRobot ---
+@app.get("/health", status_code=200, tags=["Health"])
+def health_check():
+    """
+    Endpoint for UptimeRobot to ping and keep the server awake.
+    """
+    return {"status": "ok", "message": "Backend is active and awake"}
