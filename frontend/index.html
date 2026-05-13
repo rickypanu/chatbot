@@ -1,48 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SMG-EV Assistant</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <!-- Inside your <head> tag, add this line: -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <!-- Google Fonts for better typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="chat-container">
-        <!-- Modern Header -->
-        <div class="chat-header">
-            <div class="header-profile">
-                <div class="avatar">
-                    <i class="fa-solid fa-robot"></i>
-                    <span class="status-dot"></span>
-                </div>
-                <div class="header-text">
-                    <h2>SMG-EV Assistant</h2>
-                    <p>Active Now</p>
-                </div>
-            </div>
-            <div class="header-actions">
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-            </div>
+      <!-- Modern Header -->
+      <div class="chat-header">
+        <div class="header-profile">
+          <div class="avatar">
+            <i class="fa-solid fa-robot"></i>
+            <span class="status-dot"></span>
+          </div>
+          <div class="header-text">
+            <h2>SMG-EV Assistant</h2>
+            <p>Active Now</p>
+          </div>
         </div>
-        
-        <!-- Chat Area -->
-        <div class="chat-box" id="chat-box">
-            <div class="message bot-message">
-                Hello! I am the SMG-EV Assistant. How can I help you today?
-            </div>
+        <div class="header-actions">
+          <i class="fa-solid fa-ellipsis-vertical"></i>
         </div>
+      </div>
 
-        <!-- Input Area -->
-        <div class="input-area">
-            <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
-            <button id="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+      <!-- Chat Area -->
+      <div class="chat-box" id="chat-box">
+        <div class="message bot-message">
+          Hello! I am the SMG-EV Assistant. How can I help you today?
         </div>
+      </div>
+
+      <!-- Input Area -->
+      <div class="input-area">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Type your message..."
+          autocomplete="off"
+        />
+        <button id="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

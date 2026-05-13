@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Example: "https://my-backend-app.onrender.com"
     // Agar local par test kar rahe hain, toh isko "http://localhost:5000" rakhein.
     
-    const API_URL = "https://chatbot-xpnd.onrender.com"; 
+    const API_URL = "https://smgchatbot.onrender.com"; 
 
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
@@ -15,11 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (sender === 'user') {
             messageDiv.classList.add('user-message');
+            // Keep textContent for user messages (prevents them from injecting HTML)
+            messageDiv.textContent = text;
         } else {
             messageDiv.classList.add('bot-message');
+            // Use marked.parse() to convert the markdown to rich HTML for the bot
+            messageDiv.innerHTML = marked.parse(text);
         }
         
-        messageDiv.textContent = text;
         chatBox.appendChild(messageDiv);
         
         // Auto-scroll to bottom

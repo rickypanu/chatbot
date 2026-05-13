@@ -223,3 +223,19 @@ body {
     0% { transform: translateY(0); opacity: 0.5; }
     100% { transform: translateY(-5px); opacity: 1; }
 }
+/* Add this to your style.css */
+.bot-message p {
+    margin: 0 0 10px 0; /* Adds space between paragraphs */
+}
+
+.bot-message p:last-child {
+    margin-bottom: 0; /* Removes extra space at the very bottom of the bubble */
+}
+
+.bot-message strong {
+    font-weight: 600; /* Makes the bold text pop nicely */
+}
+
+.bot-message ul, .bot-message ol {
+    margin: 5px 0 10px 20px; /* Indents the bullet points properly */
+}
